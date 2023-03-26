@@ -18,10 +18,7 @@ public class JUnit5Test {
     static void beforeAll() {
 
         Configuration.browserSize = "1920x1080";
-
-
     }
-
 
     @ValueSource(strings = {"standard_user", "performance_glitch_user"})
     @ParameterizedTest(name = "Проверить что пользователь {0} может залогиниться")
@@ -32,7 +29,6 @@ public class JUnit5Test {
         $("#password").setValue("secret_sauce");
         $("#login-button").click();
         $(".app_logo").shouldHave(Condition.text("Swag Labs"));
-
     }
 
 
@@ -43,10 +39,7 @@ public class JUnit5Test {
         open("https://www.amazon.com/");
         $("#twotabsearchtextbox").setValue(testData).pressEnter();
         $x("//div[@data-cel-widget='search_result_1']").shouldHave(Condition.text(expectedResult));
-
-
     }
-
 }
 
 

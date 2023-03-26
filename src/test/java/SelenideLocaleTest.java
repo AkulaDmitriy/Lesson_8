@@ -20,13 +20,12 @@ public class SelenideLocaleTest {
     static void beforeAll() {
 
         Configuration.browserSize = "1920x1080";
-
     }
 
     static Stream<Arguments> dataProvider() {
         return Stream.of(
-                Arguments.of(Locale.Ru, List.of("С чего начать?", "Док", "ЧАВО", "Блог", "Javadoc", "Пользователи", "Отзывы")),
-                Arguments.of(Locale.En, List.of("Quick start", "Docs", "FAQ", "Blog", "Javadoc", "Users", "Quotes"))
+                Arguments.of(Locale.RU, List.of("С чего начать?", "Док", "ЧАВО", "Блог", "Javadoc", "Пользователи", "Отзывы")),
+                Arguments.of(Locale.EN, List.of("Quick start", "Docs", "FAQ", "Blog", "Javadoc", "Users", "Quotes"))
         );
     }
 
@@ -37,12 +36,7 @@ public class SelenideLocaleTest {
         open("https://www.selenide.org/");
         $$("#languages a").find(text(locale.name())).click();
         $$(".main-menu-pages a").filter(visible).shouldHave(texts(expectedMenuPoints));
-
-
     }
-
-
-
 }
 
 
